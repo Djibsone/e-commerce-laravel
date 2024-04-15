@@ -6,7 +6,7 @@
         <div class="row no-gutters border rounded overflow-hidden flex-md-row shadow-sm h-md-250 position-relative">
             <div class="col p-4 d-flex flex-column position-static">
                 <muted class="d-inline-block mb-2 text-primary">
-                    <div class="badge badge-pill badge-info">{{ $stock }}</div>
+                    <div class="badge badge-pill text-info">{{ $stock }}</div>
                     @foreach ($product->categories as $category)
                         {{ $category->name }}{{ $loop->last ? '' : ', ' }}
                     @endforeach

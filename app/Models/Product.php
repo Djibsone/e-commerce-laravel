@@ -10,16 +10,21 @@ class Product extends Model
 {
     use HasFactory;
 
-    public function getPrice(){
+    protected $fillable = ['stock'];
+    
+    public function getPrice()
+    {
         $price = $this->price;
-        return number_format($price, 2, ',',' ') . ' XOF';
+        return number_format($price, 2, ',', ' ') . ' XOF';
     }
 
-    public function getSlug () {
+    public function getSlug()
+    {
         return Str::slug($this->title);
     }
 
-    public function categories() {
+    public function categories()
+    {
         return $this->belongsToMany(Category::class);
     }
 }

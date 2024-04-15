@@ -23,6 +23,7 @@ class ProductController extends Controller
 
     public function show(string $slug, Product $product) {
         $expectedSlug = $product->getSlug();
+        $stock = $product->stock === 0 ? 'Indisponible' : 'Disponible';
         if ($slug !== $expectedSlug) {
             return to_route('product.show', [
                 'slug' => $expectedSlug,
@@ -31,7 +32,8 @@ class ProductController extends Controller
         }
 
         return view('products.show', [
-            'product' => $product
+            'product' => $product,
+            'stock' => $stock
         ]);
     }
 }
